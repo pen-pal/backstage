@@ -463,7 +463,7 @@ describe('OidcService', () => {
           userEntityRef: 'user:default/test',
         });
 
-        expect(result.redirectUrl).toMatch(
+        expect((result as { redirectUrl: string }).redirectUrl).toMatch(
           /^https:\/\/example\.com\/callback\?code=.+&state=test-state$/,
         );
       });
@@ -737,7 +737,9 @@ describe('OidcService', () => {
           userEntityRef: 'user:default/test',
         });
 
-        const code = new URL(authResult.redirectUrl).searchParams.get('code')!;
+        const code = new URL(
+          (authResult as { redirectUrl: string }).redirectUrl,
+        ).searchParams.get('code')!;
 
         const tokenResult = await service.exchangeCodeForToken({
           code,
@@ -795,7 +797,9 @@ describe('OidcService', () => {
           userEntityRef: 'user:default/test',
         });
 
-        const code = new URL(authResult.redirectUrl).searchParams.get('code')!;
+        const code = new URL(
+          (authResult as { redirectUrl: string }).redirectUrl,
+        ).searchParams.get('code')!;
 
         const tokenResult = await service.exchangeCodeForToken({
           code,
@@ -829,7 +833,9 @@ describe('OidcService', () => {
           userEntityRef: 'user:default/test',
         });
 
-        const code = new URL(authResult.redirectUrl).searchParams.get('code')!;
+        const code = new URL(
+          (authResult as { redirectUrl: string }).redirectUrl,
+        ).searchParams.get('code')!;
 
         await expect(
           service.exchangeCodeForToken({
@@ -872,7 +878,9 @@ describe('OidcService', () => {
           userEntityRef: 'user:default/test',
         });
 
-        const code = new URL(authResult.redirectUrl).searchParams.get('code')!;
+        const code = new URL(
+          (authResult as { redirectUrl: string }).redirectUrl,
+        ).searchParams.get('code')!;
 
         const tokenResult = await service.exchangeCodeForToken({
           code,
@@ -1280,13 +1288,13 @@ describe('OidcService', () => {
             userEntityRef: 'user:default/test',
           });
 
-          expect(approveResult.redirectUrl).toMatch(
-            /^http:\/\/localhost:8080\/callback\?code=.+$/,
-          );
+          expect(
+            (approveResult as { redirectUrl: string }).redirectUrl,
+          ).toMatch(/^http:\/\/localhost:8080\/callback\?code=.+$/);
 
-          const code = new URL(approveResult.redirectUrl).searchParams.get(
-            'code',
-          )!;
+          const code = new URL(
+            (approveResult as { redirectUrl: string }).redirectUrl,
+          ).searchParams.get('code')!;
           const tokenResult = await service.exchangeCodeForToken({
             code,
             redirectUri: 'http://localhost:8080/callback',
@@ -1337,9 +1345,9 @@ describe('OidcService', () => {
           });
 
           // Exchange code for token with verifier
-          const code = new URL(approveResult.redirectUrl).searchParams.get(
-            'code',
-          )!;
+          const code = new URL(
+            (approveResult as { redirectUrl: string }).redirectUrl,
+          ).searchParams.get('code')!;
           const tokenResult = await service.exchangeCodeForToken({
             code,
             redirectUri: 'http://localhost:8080/callback',
