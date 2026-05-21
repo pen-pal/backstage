@@ -414,9 +414,8 @@ export class OidcService {
   public async approveAuthorizationSession(opts: {
     sessionId: string;
     userEntityRef: string;
-    upstreamCallbackUrl?: string;
   }): Promise<{ redirectUrl: string } | { upstreamAuthUrl: string }> {
-    const { sessionId, userEntityRef, upstreamCallbackUrl } = opts;
+    const { sessionId, userEntityRef } = opts;
     const session = await this.getValidPendingSession(sessionId);
 
     await this.oidc.updateAuthorizationSession({
@@ -429,8 +428,7 @@ export class OidcService {
     const needsUpstream =
       scopes.includes('offline_access') &&
       this.offlineAccess &&
-      this.upstreamRefreshRegistry &&
-      upstreamCallbackUrl;
+      this.upstreamRefreshRegistry;
 
     if (needsUpstream) {
       const signInProviderId =
@@ -452,8 +450,7 @@ export class OidcService {
 
       const { url } = await entry.start({
         scope: 'openid offline_access',
-        state: session.id,
-        callbackUrl: upstreamCallbackUrl,
+        sessionId: session.id,
       });
 
       return { upstreamAuthUrl: url };
