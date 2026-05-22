@@ -1,5 +1,14 @@
 # @backstage/plugin-catalog-react
 
+## 3.0.1-next.0
+
+### Patch Changes
+
+- 7c20545: Fixed redundant API calls during entity list initialization. Filter components that register their initial state in quick succession (e.g. `EntityKindPicker`, `UserListPicker`, `EntityTagPicker`) no longer trigger multiple identical fetches. Frontend-only filter changes such as toggling the user list are now applied synchronously without a network round-trip.
+- Updated dependencies
+  - @backstage/core-compat-api@0.5.12-next.0
+  - @backstage/integration-react@1.2.18
+
 ## 3.0.0
 
 ### Patch Changes

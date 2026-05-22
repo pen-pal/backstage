@@ -1,5 +1,14 @@
 # example-backend
 
+## 0.0.51-next.0
+
+### Patch Changes
+
+- Updated dependencies
+  - @backstage/plugin-notifications-backend@0.6.6-next.0
+  - @backstage/plugin-catalog-backend@3.7.1-next.0
+  - @backstage/plugin-catalog-backend-module-logs@0.1.23-next.0
+
 ## 0.0.50
 
 ### Patch Changes

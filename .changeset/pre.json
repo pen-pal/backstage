@@ -227,5 +227,12 @@
     "@backstage/plugin-user-settings-backend": "0.4.3",
     "@backstage/plugin-user-settings-common": "0.1.0"
   },
-  "changesets": []
+  "changesets": [
+    "create-app-1779458584",
+    "eager-birds-fly",
+    "fix-entity-list-triple-fetch",
+    "notifications-backend-openapi-router",
+    "split-query-entities-count",
+    "stitch-claim-transaction"
+  ]
 }

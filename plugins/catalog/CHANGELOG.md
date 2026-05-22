@@ -1,5 +1,15 @@
 # @backstage/plugin-catalog
 
+## 2.0.6-next.0
+
+### Patch Changes
+
+- 82cf16f: Added `CatalogExportButton`, which adds CSV and JSON export support to the `CatalogIndexPage`.
+- Updated dependencies
+  - @backstage/plugin-catalog-react@3.0.1-next.0
+  - @backstage/core-compat-api@0.5.12-next.0
+  - @backstage/integration-react@1.2.18
+
 ## 2.0.5
 
 ### Patch Changes

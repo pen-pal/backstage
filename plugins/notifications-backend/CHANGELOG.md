@@ -1,5 +1,11 @@
 # @backstage/plugin-notifications-backend
 
+## 0.6.6-next.0
+
+### Patch Changes
+
+- ac410b1: Migrated the internal router to be generated from the plugin's OpenAPI specification. The HTTP API is unchanged.
+
 ## 0.6.5
 
 ### Patch Changes
